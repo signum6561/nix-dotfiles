@@ -10,6 +10,6 @@ alias lt='ls --tree -L=3 --group-directories-first --git-ignore'
 {{ if .rc.fastfetch }}
 alias fastfetch="fastfetch -c ~/.config/fastfetch/config.jsonc"
 {{ end }}
-alias homesh='$EDITOR ~/.nix-dotfiles/home/{{.machine}}.nix'
+alias homesh='$EDITOR ~/.nix-dotfiles/hosts/{{.machine}}/home.nix'
 alias home-reload='home-manager switch --flake ~/.nix-dotfiles#{{.machine}} -b home.bak'
 

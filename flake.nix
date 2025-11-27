@@ -58,7 +58,11 @@
                   wrappers = inputs.wrappers;
                 };
                 modules = [
-                  ./home/void-station.nix
+                  ./hosts/void-station/home.nix
+                  ./modules/chezmoi.nix
+                  ./modules/tmux.nix
+                  ./modules/zsh-plugins.nix
+                  ./modules/helix-langs.nix
                 ];
               };
             };

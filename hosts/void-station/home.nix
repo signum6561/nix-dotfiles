@@ -21,13 +21,6 @@
     uv
   ];
 
-  imports = [
-    ./modules/chezmoi.nix
-    ./modules/tmux.nix
-    ./modules/zsh-plugins.nix
-    ./modules/helix-langs.nix
-  ];
-
   zsh-plugins = {
     zoxide = true;
     direnv = true;
