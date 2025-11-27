@@ -1,0 +1,21 @@
+#!/bin/sh
+# Faster startup for GTK apps:
+# dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY > /dev/null 2>&1 &
+
+podman system service -t 0 &
+runsvdir "$HOME/.local/sv" &
+/usr/libexec/xdg-desktop-portal-wlr &
+/usr/libexec/xdg-desktop-portal-lxqt &
+/usr/libexec/polkit-kde-authentication-agent-1 &
+
+pipewire > /dev/null 2>&1 &
+waybar > /dev/null 2>&1 &
+mako > /dev/null 2>&1 &
+fcitx5 > /dev/null 2>&1 &
+waypaper --restore > /dev/null 2>&1 &
+tailscale systray > /dev/null 2>&1 &
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/signum_github &
+fi

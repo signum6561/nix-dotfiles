@@ -1,0 +1,35 @@
+[[language]]
+name = "dart"
+auto-format = true
+language-servers = ["dart", "typos"]
+
+[language-server.typos]
+command = "typos-lsp"
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+auto-format = true
+
+[language-server.clangd]
+command = "clangd"
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+
+[[language]]
+name = "nix"
+auto-format = true
+language-servers = ["nil"]
+formatter = { command = "nixfmt" }
+
+[[language]]
+name = "xml"
+language-servers = ["lemminx"]
+auto-format = true
+
+[language-server.lemminx]
+command = "lemminx"
+

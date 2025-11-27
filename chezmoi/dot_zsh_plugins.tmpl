@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+source $ZINIT_HOME/zinit.zsh
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light Multirious/zsh-helix-mode
+
+{{ if .zsh.omp }}
+export OMP_THEME="powerhousev4"
+eval "$(oh-my-posh init zsh --config $HOME/.nix-dotfiles/share/oh-my-posh/$OMP_THEME.omp.toml)"
+{{ end }}
+
+{{ if .zsh.direnv }}
+eval "$(direnv hook zsh)"
+{{ end }}
+
+{{ if .zsh.zoxide }}
+eval "$(zoxide init zsh --cmd cd --hook none)"
+{{ end }}

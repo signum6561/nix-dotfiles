@@ -1,0 +1,23 @@
+{{ if ne .chezmoi.os "linux" }}
+.config/waybar
+.config/rofi
+.config/fuzzel
+.config/mako
+.config/labwc
+.config/distrobox
+{{ end }}
+
+{{ if not .rc.fastfetch }}.config/fastfetch{{ end }}
+{{ if not .rc.tmux }}.tmux.conf{{ end }}
+{{ if not .rc.nix }}.config/nix{{ end }}
+{{ if not .rc.helix }}.config/helix{{ end }}
+{{ if not .rc.lazygit }}.config/lazygit{{ end }}
+{{ if not .rc.kitty }}.config/kitty{{ end }}
+{{ if not .rc.vesktop }}.config/vesktop{{ end }}
+{{ if not .rc.zsh }}
+.zshrc
+.zsh_aliases
+.zsh_plugins
+.zshenv
+.config/direnv
+{{ end }}

@@ -1,0 +1,89 @@
+{
+    "height": 26,
+    "position": "top",
+    "modules-left": [
+        "ext/workspaces",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "backlight",
+        "pulseaudio",
+    ],
+    "modules-right": [
+        "tray",
+        "cpu",
+        "memory",
+        "battery",
+        "clock",
+    ],
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+    },
+    "cpu": {
+        "format": " :{usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " :{percentage}%",
+        "format-alt": " {used}G/{total}G",
+        "tooltip": false,
+    },
+    "ext/workspaces": {
+        "format": "{icon}{name}",
+        "format-icons": {
+        	"active": ">",
+        	"default": "",
+        },
+        "sort-by-id": true,
+        "on-click": "activate",
+    },
+    "battery": {
+        "format": "{icon}:{capacity}%",
+        "format-charging": "󰂄:{capacity}%",
+        "format-full": "󰁹:{capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"], // Battery icons (low to high)
+        "states": {
+            "warning": 30,
+            "critical": 15,
+        },
+        "interval": 60,
+        "tooltip": false,
+    },
+    "pulseaudio": {
+    	"format": "{icon} {volume}%",
+    	"format-bluetooth": "{icon} {volume}%",
+    	"format-muted": " ",
+    	"format-icons": {
+    		"headphones": "",
+    		"phone": "",
+    		"phone-muted": "",
+    		"portable": "",
+    		"car": "",
+    		"default": ["", ""]
+    	},
+    	"scroll-step": 1,
+    	"on-click": "pavucontrol-qt"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "tooltip": true,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "active-first": true,
+        "all-outputs": true,
+        "icon-theme": "Papirus",
+    },
+    "backlight": {
+    	"device": "amdgpu_bl0",
+    	"format": "󰃟 {percent}%",
+    	"tooltip": false,
+    },
+    "tray": {
+    	"icon-size": 16,
+    	"spacing": 10,
+    }
+}
+

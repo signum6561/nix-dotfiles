@@ -1,0 +1,12 @@
+{
+    "appBadge": false,
+    "arRPC": true,
+    "checkUpdates": false,
+    "discordBranch": "stable",
+    "enableMenu": false,
+    "hardwareAcceleration": true,
+    "minimizeToTray": true,
+    "splashBackground": "rgb(36, 39, 58)",
+    "splashColor": "rgb(202, 211, 245)",
+    "splashTheming": true
+}

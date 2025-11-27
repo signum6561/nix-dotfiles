@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! pgrep -x gscreenshot > /dev/null; then
+  gscreenshot &
+else
+	wlrctl toplevel focus app_id:gscreenshot
+fi
+

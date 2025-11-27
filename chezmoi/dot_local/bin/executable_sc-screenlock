@@ -1,0 +1,4 @@
+#!/bin/sh
+
+swaylock -i /mnt/data/Pictures/Wallpapers/NepNep.png --scaling fill
+

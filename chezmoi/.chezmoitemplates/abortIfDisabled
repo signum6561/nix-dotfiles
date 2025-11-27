@@ -1,0 +1,5 @@
+{{ define "abortIfDisabled" }}
+{{ if not . }}
+{{ abortEmpty }}
+{{ end }}
+{{ end }}

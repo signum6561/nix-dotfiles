@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+alias cz='chezmoi'
+alias cze='chezmoi edit'
+alias cza='chezmoi apply'
+alias zsh-reload='source ~/.zshrc'
+alias ls='eza --icons --group-directories-first --sort=name'
+alias ll='ls -l'
+alias lt='ls --tree -L=3 --group-directories-first --git-ignore'
+{{ if .rc.fastfetch }}
+alias fastfetch="fastfetch -c ~/.config/fastfetch/config.jsonc"
+{{ end }}
+alias homesh='$EDITOR ~/.nix-dotfiles/home/{{.machine}}.nix'
+alias home-reload='home-manager switch --flake ~/.nix-dotfiles#{{.machine}} -b home.bak'
+

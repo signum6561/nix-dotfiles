@@ -1,0 +1,12 @@
+background-color=#24273a
+text-color=#cad3f5
+border-color=#b7bdf8
+progress-color=over #363a4f
+icons=1
+default-timeout=5000
+max-icon-size=48
+icon-location=left
+icon-path=/usr/share/icons/Papirus-Dark
+
+[urgency=high]
+border-color=#f5a97f

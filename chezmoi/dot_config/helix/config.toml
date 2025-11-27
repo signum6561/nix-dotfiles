@@ -1,0 +1,50 @@
+theme = "catppuccin_macchiato"
+
+[editor]
+line-number = "relative"
+cursorline = true
+color-modes = true
+
+[editor.indent-guides]
+render = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+
+[keys.normal.space]
+F = "file_picker_in_current_buffer_directory"
+
+[keys.normal.m]
+w = "@maW"
+
+[keys.normal.o]
+o = "@:! echo $(dirname %{buffer_name})/ | xclip -selection clipboard<ret>:o <C-r>+<backspace>"
+y = "@:! cp <C-r>% ./<backspace>"
+d = "@:! rm <C-r>%<ret>:bc!<ret>"
+r = "@:mv <C-r>%"
+f = ':! echo %{buffer_name} | xclip -selection clipboard'
+p = ':! git blame %{buffer_name} -L %{cursor_line},+10 | less -R'
+
+[keys.normal]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+C-s = "no_op"
+A-j = [ "extend_to_line_bounds", "delete_selection", "paste_after" ]
+A-k = [ "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before" ]
+A-J = [ "extend_to_line_bounds", "yank", "paste_after" ]
+A-K = [ "extend_to_line_bounds", "yank", "paste_before" ]
+X = ["extend_line_up", "extend_to_line_bounds"]
+D = "@:change-current-directory "
+';' = '@:'
+
+

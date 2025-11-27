@@ -1,0 +1,25 @@
+# Created by newuser for 5.9
+
+# History file for zsh
+HISTFILE=~/.zsh_history
+
+# How many commands to store in history
+HISTSIZE=10000
+SAVEHIST=10000
+
+autoload -U compinit
+compinit
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+# Share history in every terminal session
+setopt SHARE_HISTORY
+
+{{ if .rc.nix }}
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+{{ end }}
+
+source $HOME/.zsh_aliases
+source $HOME/.zsh_plugins
+
