@@ -5,20 +5,22 @@
 {
   home.username = "dsynclair";
   home.homeDirectory = "/home/dsynclair";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   home.packages = with pkgs; [
     gimp
-    fuzzel
+    rofi
     waypaper
-    devenv
     nodejs_24
     yq
     glow
-    claude-code
     lazygit
     git
-    pods
     uv
+    pipes
+    sl
+    asciiquarium-transparent
+    unstable.devenv
+    unstable.jetbrains-toolbox
   ];
 
   zsh-plugins = {
@@ -29,14 +31,25 @@
   chezmoi = {
     machineName = "void-station";
     rc = {
+      rofi = true;
       kitty = true;
       waybar = true;
       fastfetch = true;
       vesktop = true;
-      fuzzel = true;
       labwc = true;
       mako = true;
       lazygit = true;
+    };
+  };
+
+  programs.vscode = {
+    enable = true;
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        catppuccin.catppuccin-vsc-icons
+        catppuccin.catppuccin-vsc
+        bierner.markdown-preview-github-styles
+      ];
     };
   };
 

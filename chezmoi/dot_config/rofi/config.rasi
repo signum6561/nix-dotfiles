@@ -1,2 +1,13 @@
 @theme "catppuccin-default.rasi"
 @import "catppuccin-macchiato"
+
+configuration {
+    terminal: "kitty";
+    show-icons: true;
+    font: "JetBrains Mono Nerd Font 14";
+    icon-theme: "Papirus-Dark";
+}
+
+element-icon {
+    size: 1.2em;
+}

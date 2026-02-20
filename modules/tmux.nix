@@ -8,10 +8,6 @@ let
   tpmDir = "${config.xdg.configHome}/tmux/plugins/tpm";
 in
 {
-  home.packages = with pkgs; [
-    tmux
-  ];
-
   home.activation = {
     installTpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       echo "Checking for TPM installation..."

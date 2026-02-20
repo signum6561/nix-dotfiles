@@ -4,4 +4,5 @@ export NIXPKGS_ALLOW_UNFREE=1
 {{ end }}
 {{ if eq .machine "void-station" -}}
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export LD_LIBRARY_PATH=/usr/lib/linux-wallpaperengine:$LD_LIBRARY_PATH
 {{ end }}

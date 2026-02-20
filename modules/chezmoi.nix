@@ -77,6 +77,7 @@ in
   config = {
     home.packages = with pkgs; [
       unstable.chezmoi
+      bitwarden-cli
     ];
     home.file = {
       "${config.xdg.configHome}/chezmoi/chezmoi.toml" = {

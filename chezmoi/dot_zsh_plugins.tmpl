@@ -17,5 +17,7 @@ eval "$(direnv hook zsh)"
 {{ end }}
 
 {{ if .zsh.zoxide }}
-eval "$(zoxide init zsh --cmd cd --hook none)"
+if [[ "$CLAUDECODE" != "1" ]]; then
+  eval "$(zoxide init zsh --cmd cd --hook none)"
+fi
 {{ end }}

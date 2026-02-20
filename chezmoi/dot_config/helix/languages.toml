@@ -33,3 +33,16 @@ auto-format = true
 [language-server.lemminx]
 command = "lemminx"
 
+[[language]]
+name = "php"
+scope = "source.php"
+injection-regex = "php"
+file-types = ["php", "inc", "phtml", "php4", "php5", "php7", "php8"]
+shebangs = ["php"]
+roots = ["composer.json", "index.php"]
+language-servers = [ "intelephense" ]
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.intelephense]
+command = "intelephense"
+args = ["--stdio"]
