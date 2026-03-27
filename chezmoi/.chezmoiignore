@@ -5,6 +5,8 @@
 .config/mako
 .config/labwc
 .config/distrobox
+.config/niri
+.config/local
 {{ end }}
 
 {{ if not .rc.fastfetch }}.config/fastfetch{{ end }}
