@@ -1,72 +1,52 @@
 {
-  description = "A very basic flake";
+  description = "Minimalist Home Manager flake for void-station";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-
     catppuccin.url = "github:catppuccin/nix/release-25.11";
-
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-
     wrappers.url = "github:lassulus/wrappers";
   };
-  outputs =
-    { flake-parts, catppuccin, ... }@inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-linux"
-      ];
 
-      perSystem =
-        {
-          config,
-          self',
-          pkgs,
-          system,
-          ...
-        }:
-        {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [
-              (final: prev: {
-                unstable = import inputs.nixpkgs-unstable {
-                  inherit system;
-                  config = prev.config;
-                };
-              })
-            ];
-            config = { };
-          };
-          legacyPackages = {
-            homeConfigurations = {
-              "void-station" = inputs.home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-                extraSpecialArgs = {
-                  wrappers = inputs.wrappers;
-                };
-                modules = [
-                  catppuccin.homeModules.catppuccin
-                  { nixpkgs.config.allowUnfree = true; }
-                  ./hosts/void-station/home.nix
-                  ./modules/chezmoi.nix
-                  ./modules/tmux.nix
-                  ./modules/zsh-plugins.nix
-                  ./modules/helix-langs.nix
-                ];
-              };
+  outputs =
+    {
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      catppuccin,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          (final: prev: {
+            unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
             };
-          };
-        };
+          })
+        ];
+      };
+    in
+    {
+      homeConfigurations."dsynclair" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit (inputs) wrappers; };
+        modules = [
+          catppuccin.homeModules.catppuccin
+          ./home.nix
+          ../../modules/chezmoi.nix
+          ../../modules/tmux.nix
+          ../../modules/zsh-plugins.nix
+          ../../modules/helix-langs.nix
+        ];
+      };
     };
 }

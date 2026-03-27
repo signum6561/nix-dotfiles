@@ -11,6 +11,6 @@ alias lt='ls --tree -L=3 --group-directories-first --git-ignore'
 {{ if eq .machine "void-station" -}}
 alias fastfetch="fastfetch -c ~/.config/fastfetch/config.jsonc"
 alias homesh='$EDITOR ~/.nix-dotfiles/hosts/{{.machine}}/home.nix'
-alias home-reload='home-manager switch --flake ~/.nix-dotfiles/hosts/void-station -b home.bak'
+alias home-reload='home-manager switch --flake ~/.nix-dotfiles/hosts/void-station#dsynclair -b home.bak'
 {{ end }}
 
