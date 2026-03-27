@@ -46,3 +46,16 @@ indent = { tab-width = 4, unit = "    " }
 [language-server.intelephense]
 command = "intelephense"
 args = ["--stdio"]
+
+[[language]]
+name = "json"
+language-servers = [ "jsonls" ]
+auto-format = true
+
+[language-server.jsonls]
+command = "vscode-json-languageserver"
+args = ["--stdio"]
+
+[language-server.jsonls.config]
+json = { validate = { enable = true }, format = { enable = true } }
+provideFormatter = true

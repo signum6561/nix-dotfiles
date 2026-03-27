@@ -6,6 +6,8 @@
 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    catppuccin.url = "github:catppuccin/nix/release-25.11";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +18,7 @@
     wrappers.url = "github:lassulus/wrappers";
   };
   outputs =
-    { flake-parts, ... }@inputs:
+    { flake-parts, catppuccin, ... }@inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
@@ -54,6 +56,7 @@
                   wrappers = inputs.wrappers;
                 };
                 modules = [
+                  catppuccin.homeModules.catppuccin
                   { nixpkgs.config.allowUnfree = true; }
                   ./hosts/void-station/home.nix
                   ./modules/chezmoi.nix

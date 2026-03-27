@@ -46,23 +46,27 @@ binds {
     Mod+Shift+J hotkey-overlay-title="Move Down" { move-window-down; }
 
     // #"Workspaces"
-    Mod+I hotkey-overlay-title="Workspace 1" { focus-workspace 1; }
-    Mod+O hotkey-overlay-title="Workspace 2" { focus-workspace 2; }
-    Mod+P hotkey-overlay-title="Workspace 3" { focus-workspace 3; }
-    Mod+8 hotkey-overlay-title="Workspace 4" { focus-workspace 4; }
-    Mod+9 hotkey-overlay-title="Workspace 5" { focus-workspace 5; }
-    Mod+0 hotkey-overlay-title="Workspace 6" { focus-workspace 6; }
+    Mod+1 hotkey-overlay-title="Workspace 1" { focus-workspace 1; }
+    Mod+2 hotkey-overlay-title="Workspace 2" { focus-workspace 2; }
+    Mod+3 hotkey-overlay-title="Workspace 3" { focus-workspace 3; }
+    Mod+4 hotkey-overlay-title="Workspace 4" { focus-workspace 4; }
 
     // #"Move to Workspace"
-    Mod+Shift+I hotkey-overlay-title="Move to WS 1" { move-window-to-workspace 1; }
-    Mod+Shift+O hotkey-overlay-title="Move to WS 2" { move-window-to-workspace 2; }
-    Mod+Shift+P hotkey-overlay-title="Move to WS 3" { move-window-to-workspace 3; }
-    Mod+Shift+8 hotkey-overlay-title="Move to WS 4" { move-window-to-workspace 4; }
-    Mod+Shift+9 hotkey-overlay-title="Move to WS 5" { move-window-to-workspace 5; }
-    Mod+Shift+0 hotkey-overlay-title="Move to WS 6" { move-window-to-workspace 6; }
+    Mod+Shift+1 hotkey-overlay-title="Move to WS 1" { move-window-to-workspace 1; }
+    Mod+Shift+2 hotkey-overlay-title="Move to WS 2" { move-window-to-workspace 2; }
+    Mod+Shift+3 hotkey-overlay-title="Move to WS 3" { move-window-to-workspace 3; }
+    Mod+Shift+4 hotkey-overlay-title="Move to WS 4" { move-window-to-workspace 4; }
 
-    Mod+1 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_shadow.png" "eDP-1"; }
-    Mod+2 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_void_v2.png" "eDP-1"; }
+    // Mod+1 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_shadow.png" "eDP-1"; }
+    // Mod+2 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_void_v2.png" "eDP-1"; }
+    Mod+Left  { focus-monitor-left; }
+    Mod+Right { focus-monitor-right; }
+}
+
+input {
+    touchpad {
+        tap
+    }
 }
 
 layout {
@@ -93,6 +97,14 @@ window-rule {
     focus-ring {
         width 0
     }
+}
+
+window-rule {
+    match title="^Android Emulator - .*"
+    match app-id="emulator"
+    
+    open-floating true
+    default-column-width { fixed 450; }
 }
 
 window-rule {
