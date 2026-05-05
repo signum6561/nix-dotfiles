@@ -17,12 +17,16 @@ in
   home.homeDirectory = "/home/dsynclair";
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
+    gibo
+    jq
+    typescript-language-server
     gimp
     rofi
     waypaper
     yq
     glow
     lazygit
+    lazydocker
     git
     uv
     pipes
@@ -32,7 +36,11 @@ in
     asciiquarium-transparent
     nodejs_22
     vscode-json-languageserver
+    vscode-css-languageserver
+    superhtml
     prettier
+    unstable.jiratui
+    unstable.opencode
     unstable.devenv
     unstable.jetbrains-toolbox
   ];

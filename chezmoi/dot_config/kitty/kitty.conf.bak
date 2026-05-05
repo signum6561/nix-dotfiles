@@ -101,6 +101,6 @@ symbol_map U+F0001-U+F1AF0 Symbols Nerd Font Mono
 
 
 # BEGIN_KITTY_THEME
-# Noctalia
+# Catppuccin-Latte
 include current-theme.conf
 # END_KITTY_THEME

@@ -59,3 +59,25 @@ args = ["--stdio"]
 [language-server.jsonls.config]
 json = { validate = { enable = true }, format = { enable = true } }
 provideFormatter = true
+
+[[language]]
+name = "javascript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "babel"] }
+language-servers = [ "typescript-language-server", "eslint" ]
+
+[[language]]
+name = "typescript"
+auto-format = true
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+language-servers = [ "typescript-language-server", "eslint" ]
+
+[[language]]
+name = "html"
+language-servers = [ "superhtml" ]
+formatter = { command = "superhtml", args = ["fmt"] }
+auto-format = true
+
+[language-server.superhtml]
+command = "superhtml"
+args = ["lsp"]

@@ -21,13 +21,14 @@ binds {
     // #"Shell & Utilities"
     Mod+Escape hotkey-overlay-title="Toggle Cheatsheet" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:keybind-cheatsheet" "toggle"; }
     Mod+S hotkey-overlay-title="Open Launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+Shift+S hotkey-overlay-title="Screenshot" { spawn "sc-screenshot"; }
+    Mod+Shift+2 hotkey-overlay-title="Screenshot" { spawn "sc-screenshot"; }
+    Mod+Shift+3 hotkey-overlay-title="Screenshot" { spawn "sc-screenshot" "-c" "-n"; }
+    Mod+Shift+4 hotkey-overlay-title="Screenshot Selection" { spawn "sc-screenshot" "-s" "-c" "-n"; }
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty" "--title" "home"; }
-    Mod+Shift+E hotkey-overlay-title="Quit Niri" { quit; }
 
     // #"Window Management"
     Mod+Q hotkey-overlay-title="Close Window" { close-window; }
-    Mod+A hotkey-overlay-title="Maximize Column" { maximize-column; }
+    Mod+E hotkey-overlay-title="Maximize Column" { maximize-column; }
     Mod+BracketLeft hotkey-overlay-title="Toggle Floating" { toggle-window-floating; }
     Mod+F hotkey-overlay-title="Fullscreen" { fullscreen-window; }
     Mod+C hotkey-overlay-title="Center Column" { center-column; }
@@ -46,19 +47,19 @@ binds {
     Mod+Shift+J hotkey-overlay-title="Move Down" { move-window-down; }
 
     // #"Workspaces"
-    Mod+1 hotkey-overlay-title="Workspace 1" { focus-workspace 1; }
-    Mod+2 hotkey-overlay-title="Workspace 2" { focus-workspace 2; }
-    Mod+3 hotkey-overlay-title="Workspace 3" { focus-workspace 3; }
-    Mod+4 hotkey-overlay-title="Workspace 4" { focus-workspace 4; }
+    Mod+U hotkey-overlay-title="Workspace 1" { focus-workspace 1; }
+    Mod+I hotkey-overlay-title="Workspace 2" { focus-workspace 2; }
+    Mod+O hotkey-overlay-title="Workspace 3" { focus-workspace 3; }
+    Mod+P hotkey-overlay-title="Workspace 4" { focus-workspace 4; }
 
     // #"Move to Workspace"
-    Mod+Shift+1 hotkey-overlay-title="Move to WS 1" { move-window-to-workspace 1; }
-    Mod+Shift+2 hotkey-overlay-title="Move to WS 2" { move-window-to-workspace 2; }
-    Mod+Shift+3 hotkey-overlay-title="Move to WS 3" { move-window-to-workspace 3; }
-    Mod+Shift+4 hotkey-overlay-title="Move to WS 4" { move-window-to-workspace 4; }
+    Mod+Shift+U hotkey-overlay-title="Move to WS 1" { move-window-to-workspace 1; }
+    Mod+Shift+I hotkey-overlay-title="Move to WS 2" { move-window-to-workspace 2; }
+    Mod+Shift+O hotkey-overlay-title="Move to WS 3" { move-window-to-workspace 3; }
+    Mod+Shift+P hotkey-overlay-title="Move to WS 4" { move-window-to-workspace 4; }
 
-    // Mod+1 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_shadow.png" "eDP-1"; }
-    // Mod+2 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_void_v2.png" "eDP-1"; }
+    Mod+1 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_shadow.png" "eDP-1"; }
+    Mod+2 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "wallpaper" "set" "/mnt/data/Pictures/Wallpapers/alive/purple_heart_void_v2.png" "eDP-1"; }
     Mod+Left  { focus-monitor-left; }
     Mod+Right { focus-monitor-right; }
 }

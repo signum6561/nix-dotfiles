@@ -1,0 +1,152 @@
+version = 3
+final_space = true
+[palette]
+  rosewater = "#dc8a78"
+  flamingo  = "#dd7878"
+  pink      = "#ea76cb"
+  mauve     = "#8839ef"
+  red       = "#d20f39"
+  maroon    = "#e64553"
+  peach     = "#fe640b"
+  yellow    = "#df8e1d"
+  green     = "#40a02b"
+  teal      = "#179287"
+  sky       = "#04a5e5"
+  sapphire  = "#209fb5"
+  blue      = "#1e66f5"
+  lavender  = "#7287fd"
+  text      = "#4c4f69"
+  subtext1  = "#5c5f77"
+  subtext0  = "#6c6f85"
+  overlay2  = "#7c7f93"
+  overlay1  = "#8c8fa1"
+  overlay0  = "#9ca0b0"
+  surface2  = "#acb0be"
+  surface1  = "#bcc0cc"
+  surface0  = "#ccd0da"
+  base      = "#eff1f5"
+  mantle    = "#e6e9ef"
+  crust     = "#dce0e8"
+
+[upgrade]
+  source = "cdn"
+  interval = "168h"
+  auto = false
+  notice = false
+
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
+  
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    template = "\n"
+
+  [[blocks.segments]]
+    type = "nix-shell"
+    background = "p:mauve"
+    foreground = "p:mantle"
+    template = "󱄅 {{ .Type }}"  
+    style = "diamond"
+    leading_diamond = ""
+    trailing_diamond = ""
+
+  [[blocks.segments]]
+    type = "session"
+    foreground = "p:base"
+    background = "p:rosewater"
+    style = "diamond"
+    leading_diamond = ""
+    trailing_diamond = ""
+    template = "{{if .SSHSession}} {{end}}{{.UserName}}/{{.HostName}}"
+
+
+  [[blocks.segments]]
+    template = "["
+    foreground = "p:blue"
+    background = "transparent"
+    type = "text"
+    style="plain"
+
+   [[blocks.segments]]
+    type = "python"
+    style = "diamond"
+    leading_diamond = ""
+    trailing_diamond = ""
+    foreground = "p:mantle"
+    background = "p:teal"
+    template = " venv"
+
+  [[blocks.segments]]
+    type = "project"
+    style = "powerline"
+    foreground = "p:blue"
+    background = "transparent"
+    template = "{{ if .Error }}{{ .Error }}{{ else }} {{ end }}"
+
+  [[blocks.segments]]
+    template = "{{ .Path }}"
+    foreground = "p:blue"
+    background = "transparent"
+    type = "path"
+    style="plain"
+
+    [blocks.segments.properties]
+      style = "folder"
+
+  [[blocks.segments]]
+    template = " {{ .HEAD }}"
+    type = "git"
+    foreground = "p:yellow"
+    background = "transparent"
+    style = "plain"
+
+    [blocks.segments.properties]
+    
+      [blocks.segments.properties.mapped_branches]
+        "feature/*" = "󱓞 "
+
+  [[blocks.segments]]
+    template = "]"
+    foreground = "p:blue"
+    background = "transparent"
+    type = "text"
+    style="plain"
+
+[[blocks]]
+  type="prompt"
+  alignment="right"
+
+  [[blocks.segments]]
+    template = "{{if .Code}}x{{.Code}}{{end}}"
+    foreground = "p:red"
+    type = "status"
+    style = "plain"  
+
+  [[blocks.segments]]
+    type = "executiontime"
+    alias = "Ext"
+    template = " ext {{.FormattedMs}}"
+    foreground = "p:sky"
+    style = "plain"
+
+    [blocks.segments.properties]
+      threshold = 500
+      style="dallas"       
+    
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
+  newline = true
+
+  [[blocks.segments]]
+    template = " "
+    foreground = "p:sky"
+    type = "text"
+    style = "plain"
+
+[transient_prompt]
+  template = "> "
+  foreground = "p:mauve"
+
